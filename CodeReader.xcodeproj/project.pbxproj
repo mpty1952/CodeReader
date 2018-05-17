@@ -14,6 +14,14 @@
 		8EB0203020A9637400FF4129 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8EB0202E20A9637400FF4129 /* LaunchScreen.storyboard */; };
 		8EB0203B20A9637400FF4129 /* CodeReaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB0203A20A9637400FF4129 /* CodeReaderTests.swift */; };
 		8EB0204620A9637400FF4129 /* CodeReaderUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB0204520A9637400FF4129 /* CodeReaderUITests.swift */; };
+		8EB0205420A964A300FF4129 /* DataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB0205320A964A300FF4129 /* DataViewController.swift */; };
+		8EB0205620A966D300FF4129 /* CreateQRcode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB0205520A966D300FF4129 /* CreateQRcode.swift */; };
+		8EB0205820A9671600FF4129 /* CodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB0205720A9671600FF4129 /* CodeViewController.swift */; };
+		8EB0205C20A97CE600FF4129 /* CreateBarcode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB0205B20A97CE600FF4129 /* CreateBarcode.swift */; };
+		8EB0206220A999E800FF4129 /* ViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB0206120A999E800FF4129 /* ViewController2.swift */; };
+		8EF1611520AD40F000106425 /* BarcodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EF1611420AD40F000106425 /* BarcodeViewController.swift */; };
+		8EF1611720AD599900106425 /* DataViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EF1611620AD599900106425 /* DataViewController2.swift */; };
+		8EF1611920AD6B8D00106425 /* DataViewController3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EF1611820AD6B8D00106425 /* DataViewController3.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +55,14 @@
 		8EB0204120A9637400FF4129 /* CodeReaderUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CodeReaderUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8EB0204520A9637400FF4129 /* CodeReaderUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeReaderUITests.swift; sourceTree = "<group>"; };
 		8EB0204720A9637400FF4129 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8EB0205320A964A300FF4129 /* DataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataViewController.swift; sourceTree = "<group>"; };
+		8EB0205520A966D300FF4129 /* CreateQRcode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateQRcode.swift; sourceTree = "<group>"; };
+		8EB0205720A9671600FF4129 /* CodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeViewController.swift; sourceTree = "<group>"; };
+		8EB0205B20A97CE600FF4129 /* CreateBarcode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateBarcode.swift; sourceTree = "<group>"; };
+		8EB0206120A999E800FF4129 /* ViewController2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController2.swift; sourceTree = "<group>"; };
+		8EF1611420AD40F000106425 /* BarcodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeViewController.swift; sourceTree = "<group>"; };
+		8EF1611620AD599900106425 /* DataViewController2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataViewController2.swift; sourceTree = "<group>"; };
+		8EF1611820AD6B8D00106425 /* DataViewController3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataViewController3.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,7 +114,15 @@
 			isa = PBXGroup;
 			children = (
 				8EB0202520A9637300FF4129 /* AppDelegate.swift */,
+				8EB0205320A964A300FF4129 /* DataViewController.swift */,
+				8EF1611620AD599900106425 /* DataViewController2.swift */,
+				8EF1611820AD6B8D00106425 /* DataViewController3.swift */,
+				8EB0205520A966D300FF4129 /* CreateQRcode.swift */,
+				8EB0205B20A97CE600FF4129 /* CreateBarcode.swift */,
 				8EB0202720A9637300FF4129 /* ViewController.swift */,
+				8EB0206120A999E800FF4129 /* ViewController2.swift */,
+				8EB0205720A9671600FF4129 /* CodeViewController.swift */,
+				8EF1611420AD40F000106425 /* BarcodeViewController.swift */,
 				8EB0202920A9637300FF4129 /* Main.storyboard */,
 				8EB0202C20A9637400FF4129 /* Assets.xcassets */,
 				8EB0202E20A9637400FF4129 /* LaunchScreen.storyboard */,
@@ -256,7 +280,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8EB0206220A999E800FF4129 /* ViewController2.swift in Sources */,
 				8EB0202820A9637300FF4129 /* ViewController.swift in Sources */,
+				8EF1611720AD599900106425 /* DataViewController2.swift in Sources */,
+				8EB0205620A966D300FF4129 /* CreateQRcode.swift in Sources */,
+				8EB0205C20A97CE600FF4129 /* CreateBarcode.swift in Sources */,
+				8EB0205420A964A300FF4129 /* DataViewController.swift in Sources */,
+				8EF1611520AD40F000106425 /* BarcodeViewController.swift in Sources */,
+				8EB0205820A9671600FF4129 /* CodeViewController.swift in Sources */,
+				8EF1611920AD6B8D00106425 /* DataViewController3.swift in Sources */,
 				8EB0202620A9637300FF4129 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -433,6 +465,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = M3F9TEZ6GX;
 				INFOPLIST_FILE = CodeReader/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -451,6 +484,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = M3F9TEZ6GX;
 				INFOPLIST_FILE = CodeReader/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
