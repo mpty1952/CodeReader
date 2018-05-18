@@ -3,14 +3,16 @@ import UIKit
 class ViewController2: UIViewController, AVCaptureMetadataOutputObjectsDelegate, UITextFieldDelegate{
     let userDefaults = UserDefaults.standard
     var captureSession: AVCaptureSession!
-    let X : CGFloat = 0.1
-    let Y : CGFloat = 0.2
-    let W : CGFloat = 0.8
-    let H : CGFloat = 0.2
+    var X : CGFloat = 0.1
+    var Y : CGFloat = 0.2
+    var W : CGFloat = 0.8
+    var H : CGFloat = 0.2
     
     var previewLayer: AVCaptureVideoPreviewLayer!
     @IBOutlet weak var cameraView2: UIView!
-    
+    @IBOutlet weak var Bar2: UITabBarItem!
+    var metadataOutput = AVCaptureMetadataOutput()
+    var borderView: UIView!
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -31,11 +33,8 @@ class ViewController2: UIViewController, AVCaptureMetadataOutputObjectsDelegate,
         if (captureSession.canAddInput(videoInput)) {
             captureSession.addInput(videoInput)
         } else {
-            failed();
             return;
         }
-        
-        let metadataOutput = AVCaptureMetadataOutput()
         
         
         if (captureSession.canAddOutput(metadataOutput)) {
@@ -44,7 +43,6 @@ class ViewController2: UIViewController, AVCaptureMetadataOutputObjectsDelegate,
             metadataOutput.setMetadataObjectsDelegate(self, queue: DispatchQueue.main)
             metadataOutput.metadataObjectTypes = [AVMetadataObject.ObjectType.ean8, AVMetadataObject.ObjectType.ean13]
         } else {
-            failed()
             return
         }
         
@@ -57,21 +55,14 @@ class ViewController2: UIViewController, AVCaptureMetadataOutputObjectsDelegate,
         
         metadataOutput.rectOfInterest = CGRect(x: Y,y: 1-X-W,width: H,height: W)
         
-        let borderView = UIView(frame: CGRect(x : X * self.view.bounds.width, y : Y * self.view.bounds.height, width : W * self.view.bounds.width, height : H * self.view.bounds.height))
+        borderView = UIView(frame: CGRect(x : X * self.view.bounds.width, y : Y * self.view.bounds.height, width : W * self.view.bounds.width, height : H * self.view.bounds.height))
         borderView.layer.borderWidth = 2
         borderView.layer.borderColor = UIColor.red.cgColor
         self.view.addSubview(borderView)
         
         captureSession.startRunning();
     }
-    
-    func failed() {
-        let ac = UIAlertController(title: "Scanning not supported", message: "Your device does not support scanning a code from an item. Please use a device with a camera.", preferredStyle: .alert)
-        ac.addAction(UIAlertAction(title: "OK", style: .default))
-        present(ac, animated: true)
-        captureSession = nil
-    }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
@@ -87,7 +78,31 @@ class ViewController2: UIViewController, AVCaptureMetadataOutputObjectsDelegate,
             captureSession.stopRunning();
         }
     }
-    
+    /*
+    override func viewDidAppear(_ animated: Bool) {
+        NotificationCenter.default.addObserver(self, selector: #selector(self.OrientationChange(notification:)), name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
+    }
+    @objc func OrientationChange(notification: NSNotification){
+        
+        let deviceOrientation: UIDeviceOrientation!  = UIDevice.current.orientation
+
+        if UIDeviceOrientationIsLandscape(deviceOrientation) {
+            X = 0.2
+            Y = 0.25
+            W = 0.6
+            H = 0.5
+            previewLayer?.connection?.videoOrientation=AVCaptureVideoOrientation.landscapeLeft
+        } else if UIDeviceOrientationIsPortrait(deviceOrientation){
+            X = 0.1
+            Y = 0.2
+            W = 0.8
+            H = 0.2
+            previewLayer?.connection?.videoOrientation=AVCaptureVideoOrientation.portrait
+        }
+       
+        borderView = UIView(frame: CGRect(x : X * self.view.bounds.width, y : Y * self.view.bounds.height, width : W * self.view.bounds.width, height : H * self.view.bounds.height))
+    }
+ */
     func metadataOutput(_ output: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from connection: AVCaptureConnection) {
         captureSession.stopRunning()
         
@@ -114,7 +129,7 @@ class ViewController2: UIViewController, AVCaptureMetadataOutputObjectsDelegate,
             style: .default,
             handler: { action in
                 self.addData()
-                self.viewDidLoad()
+                self.captureSession.startRunning()
         })
         let refix_button2 = UIAlertAction(
             title: "変更",
@@ -122,13 +137,13 @@ class ViewController2: UIViewController, AVCaptureMetadataOutputObjectsDelegate,
             handler: { action in
                 makingBarcode.ChangeBarcode()
                 self.addData()
-                self.viewDidLoad()
+                self.captureSession.startRunning()
         })
         let refix_button3 = UIAlertAction(
             title: "キャンセル",
             style: .default,
             handler: { action in
-                self.viewDidLoad()
+                self.captureSession.startRunning()
         })
         refix.addAction(refix_button1)
         refix.addAction(refix_button2)
@@ -156,6 +171,7 @@ class ViewController2: UIViewController, AVCaptureMetadataOutputObjectsDelegate,
             }
         }
     }
+    
 }
 
 let viewController2 = ViewController2()

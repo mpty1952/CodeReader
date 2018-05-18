@@ -11,13 +11,13 @@ class DataViewController3: UIViewController,UITableViewDataSource, UITableViewDe
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return 3
+        return allHospitalCode.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         
-        let cell: UITableViewCell = UITableViewCell(style: .default, reuseIdentifier: "myCell")
+        let cell: UITableViewCell = UITableViewCell(style: .default, reuseIdentifier: "myCell3")
         /*
         let cellName = {(i: Int) -> String in
             guard let name = viewController.userDefaults.string(forKey: "\(i)") else{
@@ -33,8 +33,8 @@ class DataViewController3: UIViewController,UITableViewDataSource, UITableViewDe
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        nameData = Array[indexPath.row]
-        numberData = Int (String(numberData) + allHospitalCode[nameData]!)!
+        //nameData = Array[indexPath.row]
+        numberData = Int (String(numberData) + allHospitalCode[Array[indexPath.row]]!)!
         viewController.addData()
         jsonParse.createJson()
         tableView.deselectRow(at: indexPath, animated: true)

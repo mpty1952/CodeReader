@@ -1,5 +1,9 @@
 import Foundation
 import UIKit
+struct JsonCode: Codable {
+    var name:String = ""
+    var number:Int = 0
+}
 var nameData:String = ""
 var numberData:Int = 0
 class CreateQRcode: UIImage{
@@ -49,16 +53,18 @@ class JsonParse {
         
     }
     func createJson(){
-        do{
-            let jsonObject:Dictionary<String,Any> = ["name": nameData, "number": numberData]
-            let jsonData = try JSONSerialization.data(withJSONObject: jsonObject, options: [])
-            let jsonString = String(bytes: jsonData, encoding: .utf8)!
-            Code = jsonString
-        }catch{
+        let jsonCode = JsonCode(name: nameData, number: numberData)
+        if let data =  try? JSONEncoder().encode(jsonCode){
+            if let code = String(data: data, encoding: .utf8) {
+                Code = code
+            } else{
+                print("error")
+            }
+        }else{
             print("error")
         }
     }
 }
 let jsonParse = JsonParse()
 //let allHospitalCode:Dictionary<String, Int> = ["A病院":100, "B病院":200, "C病院":300]
-let allHospitalCode:Dictionary<String,String> = ["A病院":"111","B病院":"222","C病院":"333"]
+let allHospitalCode:Dictionary<String,String> = ["A病院":"111","B病院":"222","C病院":"333","D病院":"444","E病院":"555","F病院":"555"]

@@ -18,7 +18,7 @@ class DataViewController2: UIViewController,UITableViewDataSource, UITableViewDe
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         
-        let cell: UITableViewCell = UITableViewCell(style: .default, reuseIdentifier: "myCell")
+        let cell: UITableViewCell = UITableViewCell(style: .default, reuseIdentifier: "myCell2")
         let cellName = {(i: Int) -> String in
             guard let name = viewController.userDefaults.string(forKey: "\(i)") else{
                 return ""

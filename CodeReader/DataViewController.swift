@@ -2,9 +2,9 @@ import UIKit
 class DataViewController: UIViewController,UITableViewDataSource, UITableViewDelegate{
     
     @IBOutlet weak var myTableView: UITableView!
+
     override func viewDidLoad(){
         super.viewDidLoad()
-
 
     }
     override func didReceiveMemoryWarning() {
@@ -17,17 +17,18 @@ class DataViewController: UIViewController,UITableViewDataSource, UITableViewDel
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         
-        let cell: UITableViewCell = UITableViewCell(style: .default, reuseIdentifier: "myCell")
+        let cell: UITableViewCell = UITableViewCell(style: .default, reuseIdentifier: "myCell1")
         let cellName = {(i: Int) -> String in
             guard let name = viewController.userDefaults.string(forKey: "\(i)") else{
                 return ""
             }
             return name
         }
+        cell.textLabel!.numberOfLines = 0;
         if cellName(indexPath.row+1001) != "" {
-            cell.textLabel!.text = String(indexPath.row+1)+". "+"Name:"+"\(cellName(indexPath.row+1001)), "+"Code:"+"\(cellName(indexPath.row+10001))"
+            cell.textLabel!.text = String(format:"%2d",indexPath.row+1)+". "+"\(cellName(indexPath.row+1001))"+"\n"+"      Code: "+"\(cellName(indexPath.row+10001))"
         } else {
-            cell.textLabel!.text = String(indexPath.row+1)+"."
+            cell.textLabel!.text = String(format:"%2d",indexPath.row+1)+"."
         }
         return cell
     }

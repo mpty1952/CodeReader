@@ -5,6 +5,7 @@ class ViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate, 
 
     
     @IBOutlet weak var cameraView: UIView!
+    @IBOutlet weak var Bar1: UITabBarItem!
     let userDefaults = UserDefaults.standard
     private var session = AVCaptureSession()
     
@@ -51,6 +52,22 @@ class ViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate, 
         }
         
     }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        if (session.isRunning == false) {
+            session.startRunning();
+        }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        if (session.isRunning == true) {
+            
+            session.stopRunning();
+        }
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -62,7 +79,8 @@ class ViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate, 
             if metadata.stringValue == nil { continue }
             Code = metadata.stringValue!
             jsonParse.Parse()
-            if Code[Code.startIndex] == "[" {
+            AudioServicesPlaySystemSound(SystemSoundID(kSystemSoundID_Vibrate))
+            if Code[Code.startIndex] == "{" {
                 Alart(code: Code)
             }else{
                 EAlart(code: Code)
