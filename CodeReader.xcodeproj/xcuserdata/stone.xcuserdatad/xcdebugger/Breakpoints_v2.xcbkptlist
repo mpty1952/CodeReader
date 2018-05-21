@@ -72,12 +72,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CodeReader/ViewController.swift"
-            timestampString = "548330433.4492691"
+            timestampString = "548587734.9024889"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "127"
-            endingLineNumber = "127"
-            landmarkName = "Alart(code:)"
+            startingLineNumber = "166"
+            endingLineNumber = "166"
+            landmarkName = "EAlart(code:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -88,12 +88,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CodeReader/ViewController.swift"
-            timestampString = "548330433.449325"
+            timestampString = "548587734.902885"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "83"
-            endingLineNumber = "83"
-            landmarkName = "viewWillDisappear(_:)"
+            startingLineNumber = "122"
+            endingLineNumber = "122"
+            landmarkName = "metadataOutput(_:didOutput:from:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -104,12 +104,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CodeReader/ViewController.swift"
-            timestampString = "548330433.4493769"
+            timestampString = "548587734.903165"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "84"
-            endingLineNumber = "84"
-            landmarkName = "viewWillDisappear(_:)"
+            startingLineNumber = "123"
+            endingLineNumber = "123"
+            landmarkName = "metadataOutput(_:didOutput:from:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -120,12 +120,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CodeReader/ViewController.swift"
-            timestampString = "548330433.44943"
+            timestampString = "548587734.903438"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "85"
-            endingLineNumber = "85"
-            landmarkName = "viewWillDisappear(_:)"
+            startingLineNumber = "124"
+            endingLineNumber = "124"
+            landmarkName = "metadataOutput(_:didOutput:from:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -136,12 +136,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CodeReader/ViewController.swift"
-            timestampString = "548330433.449492"
+            timestampString = "548587734.903708"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "81"
-            endingLineNumber = "81"
-            landmarkName = "viewWillDisappear(_:)"
+            startingLineNumber = "120"
+            endingLineNumber = "120"
+            landmarkName = "metadataOutput(_:didOutput:from:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

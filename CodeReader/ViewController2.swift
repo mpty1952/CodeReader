@@ -12,7 +12,8 @@ class ViewController2: UIViewController, AVCaptureMetadataOutputObjectsDelegate,
     @IBOutlet weak var cameraView2: UIView!
     @IBOutlet weak var Bar2: UITabBarItem!
     var metadataOutput = AVCaptureMetadataOutput()
-    var borderView: UIView!
+    var borderView1: UIView!
+    var borderView2: UIView!
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -55,11 +56,14 @@ class ViewController2: UIViewController, AVCaptureMetadataOutputObjectsDelegate,
         
         metadataOutput.rectOfInterest = CGRect(x: Y,y: 1-X-W,width: H,height: W)
         
-        borderView = UIView(frame: CGRect(x : X * self.view.bounds.width, y : Y * self.view.bounds.height, width : W * self.view.bounds.width, height : H * self.view.bounds.height))
-        borderView.layer.borderWidth = 2
-        borderView.layer.borderColor = UIColor.red.cgColor
-        self.view.addSubview(borderView)
-        
+        borderView1 = UIView(frame: CGRect(x : X * self.view.bounds.width, y : Y * self.view.bounds.height, width : W * self.view.bounds.width, height : H * self.view.bounds.height))
+        borderView1.layer.borderWidth = 2
+        borderView1.layer.borderColor = UIColor.red.cgColor
+        self.view.addSubview(borderView1)
+        borderView2 = UIView(frame: CGRect(x : 0.2 * self.view.bounds.height, y : 0.25 * self.view.bounds.width, width : 0.6 * self.view.bounds.height, height : 0.5                                                                                                                                                                                                                    * self.view.bounds.width))
+        borderView2.layer.borderWidth = 2
+        borderView2.layer.borderColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0).cgColor
+        self.view.addSubview(borderView2)
         captureSession.startRunning();
     }
 
@@ -78,31 +82,39 @@ class ViewController2: UIViewController, AVCaptureMetadataOutputObjectsDelegate,
             captureSession.stopRunning();
         }
     }
-    /*
-    override func viewDidAppear(_ animated: Bool) {
+
+ override func viewDidAppear(_ animated: Bool) {
         NotificationCenter.default.addObserver(self, selector: #selector(self.OrientationChange(notification:)), name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
     }
-    @objc func OrientationChange(notification: NSNotification){
+  @objc func OrientationChange(notification: NSNotification){
         
-        let deviceOrientation: UIDeviceOrientation!  = UIDevice.current.orientation
-
-        if UIDeviceOrientationIsLandscape(deviceOrientation) {
-            X = 0.2
-            Y = 0.25
-            W = 0.6
-            H = 0.5
-            previewLayer?.connection?.videoOrientation=AVCaptureVideoOrientation.landscapeLeft
-        } else if UIDeviceOrientationIsPortrait(deviceOrientation){
-            X = 0.1
-            Y = 0.2
-            W = 0.8
-            H = 0.2
-            previewLayer?.connection?.videoOrientation=AVCaptureVideoOrientation.portrait
+        let deviceOrientation = UIDevice.current.orientation
+        previewLayer?.bounds = cameraView2.frame
+        previewLayer?.position = CGPoint(x: self.cameraView2.frame.width / 2, y: self.cameraView2.frame.height / 2)
+        switch deviceOrientation {
+            case UIDeviceOrientation.portrait:
+                previewLayer?.connection?.videoOrientation = AVCaptureVideoOrientation.portrait
+                borderView1.layer.borderColor = UIColor.red.cgColor
+                borderView2.layer.borderColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0).cgColor
+                break
+            case UIDeviceOrientation.landscapeLeft:
+                previewLayer?.connection?.videoOrientation = AVCaptureVideoOrientation.landscapeRight
+                metadataOutput.rectOfInterest = CGRect(x: 0.2, y: 0.25, width: 0.6, height: 0.5)
+                borderView2.layer.borderColor = UIColor.red.cgColor
+                borderView1.layer.borderColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0).cgColor
+                break
+            case UIDeviceOrientation.landscapeRight:
+                previewLayer?.connection?.videoOrientation = AVCaptureVideoOrientation.landscapeLeft
+                metadataOutput.rectOfInterest = CGRect(x: 0.2, y: 0.25, width: 0.6, height: 0.5)
+                borderView2.layer.borderColor = UIColor.red.cgColor
+                borderView1.layer.borderColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0).cgColor
+                break
+            default:
+                break
         }
-       
-        borderView = UIView(frame: CGRect(x : X * self.view.bounds.width, y : Y * self.view.bounds.height, width : W * self.view.bounds.width, height : H * self.view.bounds.height))
+     
     }
- */
+
     func metadataOutput(_ output: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from connection: AVCaptureConnection) {
         captureSession.stopRunning()
         
@@ -175,4 +187,21 @@ class ViewController2: UIViewController, AVCaptureMetadataOutputObjectsDelegate,
 }
 
 let viewController2 = ViewController2()
+
+
+/*
+if UIDeviceOrientationIsLandscape(deviceOrientation) {
+    X = 0.2
+    Y = 0.25
+    W = 0.6
+    H = 0.5
+    previewLayer?.connection?.videoOrientation=AVCaptureVideoOrientation.landscapeLeft
+} else if UIDeviceOrientationIsPortrait(deviceOrientation){
+    X = 0.1
+    Y = 0.2
+    W = 0.8
+    H = 0.2
+    previewLayer?.connection?.videoOrientation=AVCaptureVideoOrientation.portrait
+}
+ */
 

@@ -7,8 +7,15 @@ class ViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate, 
     @IBOutlet weak var cameraView: UIView!
     @IBOutlet weak var Bar1: UITabBarItem!
     let userDefaults = UserDefaults.standard
+    var PreviewLayer: AVCaptureVideoPreviewLayer!
+    var borderView1: UIView!
+    var borderView2: UIView!
+    let X : CGFloat = 0.16
+    let Y : CGFloat = (1.0 - (0.68 * 40.0 / 71.0)) / 2.0
+    let W : CGFloat = 0.68
+    let H : CGFloat = 0.68 * 40.0 / 71.0
     private var session = AVCaptureSession()
-    
+    var metadataOutput = AVCaptureMetadataOutput()
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.white
@@ -22,28 +29,27 @@ class ViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate, 
             if self.session.canAddInput(videoInput) {
                 self.session.addInput(videoInput)
                 
-                let metadataOutput = AVCaptureMetadataOutput()
-                
                 if self.session.canAddOutput(metadataOutput) {
                     self.session.addOutput(metadataOutput)
                     
                     metadataOutput.setMetadataObjectsDelegate(self, queue: DispatchQueue.main)
                     metadataOutput.metadataObjectTypes = [.qr]
                     
-                    let PreviewLayer = AVCaptureVideoPreviewLayer(session: self.session)
+                    PreviewLayer = AVCaptureVideoPreviewLayer(session: self.session)
                     PreviewLayer.frame = self.cameraView.bounds
                     PreviewLayer.videoGravity = .resizeAspectFill
                     self.cameraView.layer.addSublayer(PreviewLayer)
                     PreviewLayer.position = CGPoint(x: self.cameraView.frame.width / 2, y: self.cameraView.frame.height / 2)
-                    let X : CGFloat = 0.15
-                    let Y : CGFloat = 0.25
-                    let W : CGFloat = 0.7
-                    let H : CGFloat = 0.7*self.view.frame.width/self.view.frame.height
                     metadataOutput.rectOfInterest = CGRect(x: Y,y: 1-X-W,width: H,height: W)
-                    let borderView = UIView(frame: CGRect(x : X * self.view.bounds.width, y : Y * self.view.bounds.height, width : W * self.view.bounds.width, height : H * self.view.bounds.height))
-                    borderView.layer.borderWidth = 2
-                    borderView.layer.borderColor = UIColor.red.cgColor
-                    self.view.addSubview(borderView)
+                    borderView1 = UIView(frame: CGRect(x : X * self.view.bounds.width, y : Y * self.view.bounds.height, width : W * self.view.bounds.width, height : H * self.view.bounds.height))
+                    borderView1.layer.borderWidth = 2
+                    borderView1.layer.borderColor = UIColor.red.cgColor
+                    self.view.addSubview(borderView1)
+                    self.session.startRunning()
+                    borderView2 = UIView(frame: CGRect(x : Y * self.view.bounds.height, y : (1-W-X) * self.view.bounds.width, width : W * self.view.bounds.width, height : H * self.view.bounds.height))
+                    borderView2.layer.borderWidth = 2
+                    borderView2.layer.borderColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0).cgColor
+                    self.view.addSubview(borderView2)
                     self.session.startRunning()
                 }
             }
@@ -59,6 +65,39 @@ class ViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate, 
             session.startRunning();
         }
     }
+    override func viewDidAppear(_ animated: Bool) {
+        NotificationCenter.default.addObserver(self, selector: #selector(self.OrientationChange(notification:)), name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
+    }
+    @objc func OrientationChange(notification: NSNotification){
+ 
+        let deviceOrientation = UIDevice.current.orientation
+        PreviewLayer?.bounds = cameraView.frame
+        PreviewLayer?.position = CGPoint(x: self.cameraView.frame.width / 2, y: self.cameraView.frame.height / 2)
+        switch deviceOrientation {
+        case UIDeviceOrientation.portrait:
+            PreviewLayer?.connection?.videoOrientation = AVCaptureVideoOrientation.portrait
+            borderView1.layer.borderColor = UIColor.red.cgColor
+            borderView2.layer.borderColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0).cgColor
+            break
+        case UIDeviceOrientation.landscapeLeft:
+            PreviewLayer?.connection?.videoOrientation = AVCaptureVideoOrientation.landscapeRight
+            metadataOutput.rectOfInterest = CGRect(x: X, y: Y, width: W, height: H)
+            borderView2.layer.borderColor = UIColor.red.cgColor
+            borderView1.layer.borderColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0).cgColor
+            break
+        case UIDeviceOrientation.landscapeRight:
+            PreviewLayer?.connection?.videoOrientation = AVCaptureVideoOrientation.landscapeLeft
+            metadataOutput.rectOfInterest = CGRect(x: X, y: Y, width: W, height: H)
+            borderView2.layer.borderColor = UIColor.red.cgColor
+            borderView1.layer.borderColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0).cgColor
+            break
+        default:
+            break
+        }
+        
+    }
+
+
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
@@ -146,9 +185,7 @@ class ViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate, 
     
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         return .portrait
-        
     }
-    
     
     func addData(){
         for i in (1...20) {
@@ -159,6 +196,7 @@ class ViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate, 
             }
         }
     }
+    
 }
-let viewController = ViewController()
 
+let viewController = ViewController()

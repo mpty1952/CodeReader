@@ -21,24 +21,19 @@ class CreateQRcode: UIImage{
 let createQRcode = CreateQRcode()
 class JsonParse {
     func Parse(){
-        if Code[Code.startIndex] != "[" {
-            Code = "["+Code+"]"
-        }
+
+        
         let data: Data = Code.data(using: String.Encoding.utf8)!
-        do{
-            let json = try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.allowFragments)
-            let array = json as! NSArray
-            for roop in array {
-                let allData = roop as! NSDictionary
-                nameData = allData["name"] as! String
-                numberData = allData["number"] as! Int
+        do{ if let jsonCode = try? JSONDecoder().decode(JsonCode.self, from: data){
+            nameData=jsonCode.name
+            numberData=jsonCode.number}else{
+                print("error")
+            }
                 print(nameData)
                 print(numberData)
             }
-        }catch{
-            print("error")
-        }
     }
+    
 /*    func chengeData(){
         guard let hospitalCode = allHospitalCode[nameData] else {
             print("error")
