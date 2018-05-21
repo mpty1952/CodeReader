@@ -60,7 +60,7 @@ class ViewController2: UIViewController, AVCaptureMetadataOutputObjectsDelegate,
         borderView1.layer.borderWidth = 2
         borderView1.layer.borderColor = UIColor.red.cgColor
         self.view.addSubview(borderView1)
-        borderView2 = UIView(frame: CGRect(x : 0.2 * self.view.bounds.height, y : 0.25 * self.view.bounds.width, width : 0.6 * self.view.bounds.height, height : 0.5                                                                                                                                                                                                                    * self.view.bounds.width))
+        borderView2 = UIView(frame: CGRect(x : 0.2 * self.view.bounds.height, y : 0.25 * self.view.bounds.width, width : 0.6 * self.view.bounds.height, height : 0.5                                                                                                                                 * self.view.bounds.width))
         borderView2.layer.borderWidth = 2
         borderView2.layer.borderColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0).cgColor
         self.view.addSubview(borderView2)
@@ -94,6 +94,7 @@ class ViewController2: UIViewController, AVCaptureMetadataOutputObjectsDelegate,
         switch deviceOrientation {
             case UIDeviceOrientation.portrait:
                 previewLayer?.connection?.videoOrientation = AVCaptureVideoOrientation.portrait
+                metadataOutput.rectOfInterest = CGRect(x: Y,y: 1-X-W,width: H,height: W)
                 borderView1.layer.borderColor = UIColor.red.cgColor
                 borderView2.layer.borderColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0).cgColor
                 break

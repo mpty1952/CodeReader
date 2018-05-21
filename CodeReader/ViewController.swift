@@ -76,18 +76,19 @@ class ViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate, 
         switch deviceOrientation {
         case UIDeviceOrientation.portrait:
             PreviewLayer?.connection?.videoOrientation = AVCaptureVideoOrientation.portrait
+            metadataOutput.rectOfInterest = CGRect(x: Y,y: 1-X-W,width: H,height: W)
             borderView1.layer.borderColor = UIColor.red.cgColor
             borderView2.layer.borderColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0).cgColor
             break
         case UIDeviceOrientation.landscapeLeft:
             PreviewLayer?.connection?.videoOrientation = AVCaptureVideoOrientation.landscapeRight
-            metadataOutput.rectOfInterest = CGRect(x: X, y: Y, width: W, height: H)
+            metadataOutput.rectOfInterest = CGRect(x: Y,y: 1-X-W, width: W * 40.0 / 71.0, height: H * 71.0 / 40.0)
             borderView2.layer.borderColor = UIColor.red.cgColor
             borderView1.layer.borderColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0).cgColor
             break
         case UIDeviceOrientation.landscapeRight:
             PreviewLayer?.connection?.videoOrientation = AVCaptureVideoOrientation.landscapeLeft
-            metadataOutput.rectOfInterest = CGRect(x: X, y: Y, width: W, height: H)
+            metadataOutput.rectOfInterest = CGRect(x: Y,y: 1-X-W, width: W * 40.0 / 71.0, height: H * 71.0 / 40.0)
             borderView2.layer.borderColor = UIColor.red.cgColor
             borderView1.layer.borderColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0).cgColor
             break
