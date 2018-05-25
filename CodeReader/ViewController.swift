@@ -16,10 +16,9 @@ class ViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate, 
     let H : CGFloat = 0.68 * 40.0 / 71.0
     private var session = AVCaptureSession()
     var metadataOutput = AVCaptureMetadataOutput()
+    
     override func viewDidLoad() {
-        super.viewDidLoad()
         view.backgroundColor = UIColor.white
-        
         let videoCaptureDevice = AVCaptureDevice.default(for: AVMediaType.video)
         
         
@@ -31,21 +30,16 @@ class ViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate, 
                 
                 if self.session.canAddOutput(metadataOutput) {
                     self.session.addOutput(metadataOutput)
-                    
                     metadataOutput.setMetadataObjectsDelegate(self, queue: DispatchQueue.main)
                     metadataOutput.metadataObjectTypes = [.qr]
-                    
+                    metadataOutput.rectOfInterest = CGRect(x: Y,y: 1-X-W,width: H,height: W)
                     PreviewLayer = AVCaptureVideoPreviewLayer(session: self.session)
-                    PreviewLayer.frame = self.cameraView.bounds
                     PreviewLayer.videoGravity = .resizeAspectFill
                     self.cameraView.layer.addSublayer(PreviewLayer)
-                    PreviewLayer.position = CGPoint(x: self.cameraView.frame.width / 2, y: self.cameraView.frame.height / 2)
-                    metadataOutput.rectOfInterest = CGRect(x: Y,y: 1-X-W,width: H,height: W)
                     borderView1 = UIView(frame: CGRect(x : X * self.view.bounds.width, y : Y * self.view.bounds.height, width : W * self.view.bounds.width, height : H * self.view.bounds.height))
                     borderView1.layer.borderWidth = 2
                     borderView1.layer.borderColor = UIColor.red.cgColor
                     self.view.addSubview(borderView1)
-                    self.session.startRunning()
                     borderView2 = UIView(frame: CGRect(x : Y * self.view.bounds.height, y : (1-W-X) * self.view.bounds.width, width : W * self.view.bounds.width, height : H * self.view.bounds.height))
                     borderView2.layer.borderWidth = 2
                     borderView2.layer.borderColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0).cgColor
@@ -60,16 +54,19 @@ class ViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate, 
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+        self.orientationChange()
         if (session.isRunning == false) {
             session.startRunning();
         }
     }
     override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated) 
         NotificationCenter.default.addObserver(self, selector: #selector(self.OrientationChange(notification:)), name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
     }
     @objc func OrientationChange(notification: NSNotification){
- 
+        self.orientationChange()
+    }
+    func orientationChange(){
         let deviceOrientation = UIDevice.current.orientation
         PreviewLayer?.bounds = cameraView.frame
         PreviewLayer?.position = CGPoint(x: self.cameraView.frame.width / 2, y: self.cameraView.frame.height / 2)
@@ -95,9 +92,7 @@ class ViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate, 
         default:
             break
         }
-        
     }
-
 
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -118,14 +113,14 @@ class ViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate, 
             if metadata.type != .qr { continue }
             if metadata.stringValue == nil { continue }
             Code = metadata.stringValue!
-            jsonParse.Parse()
+            self.session.stopRunning()
             AudioServicesPlaySystemSound(SystemSoundID(kSystemSoundID_Vibrate))
             if Code[Code.startIndex] == "{" {
+                jsonParse.Parse()
                 Alart(code: Code)
             }else{
                 EAlart(code: Code)
             }
-            self.session.stopRunning()
             break
             
         }
@@ -148,9 +143,8 @@ class ViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate, 
             title: "変更",
             style: .default,
             handler: { action in
-                self.performSegue(withIdentifier: "segue4", sender: nil) 
-                self.addData()
-                self.session.startRunning()
+                self.performSegue(withIdentifier: "segue4", sender: nil)
+                self.session.stopRunning()
         })
         let refix_button3 = UIAlertAction(
             title: "キャンセル",

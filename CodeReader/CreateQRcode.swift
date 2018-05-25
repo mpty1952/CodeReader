@@ -62,4 +62,4 @@ class JsonParse {
 }
 let jsonParse = JsonParse()
 //let allHospitalCode:Dictionary<String, Int> = ["A病院":100, "B病院":200, "C病院":300]
-let allHospitalCode:Dictionary<String,String> = ["A病院":"111","B病院":"222","C病院":"333","D病院":"444","E病院":"555","F病院":"555"]
+let allHospitalCode:Dictionary<String,String> = ["A病院":"111","B病院":"222","C病院":"333","D病院":"444","E病院":"555","F病院":"666"]

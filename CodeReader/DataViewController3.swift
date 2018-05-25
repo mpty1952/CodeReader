@@ -1,6 +1,6 @@
 import UIKit
 class DataViewController3: UIViewController,UITableViewDataSource, UITableViewDelegate{
-    let Array = ["A病院","B病院","C病院"]
+    let Array = ["A病院","B病院","C病院","D病院","E病院","F病院"]
     @IBOutlet weak var HosTableView: UITableView!
     
     override func viewDidLoad() {
@@ -40,6 +40,7 @@ class DataViewController3: UIViewController,UITableViewDataSource, UITableViewDe
         tableView.deselectRow(at: indexPath, animated: true)
         performSegue(withIdentifier: "segue3", sender: nil)
     }
+    /*
     func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
         if viewController.userDefaults.string(forKey: "\(indexPath.row+1)") == nil {
             return nil;
@@ -47,6 +48,7 @@ class DataViewController3: UIViewController,UITableViewDataSource, UITableViewDe
             return indexPath;
         }
     }
+    */
 
 }
 

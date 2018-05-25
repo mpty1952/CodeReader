@@ -3,7 +3,9 @@ import UIKit
 class BarcodeViewController: UIViewController{
     
     @IBOutlet weak var Barcode: UIView!
-
+    @IBAction func Back2(_ sender: UIBarButtonItem) {
+        self.dismiss(animated: true, completion: nil)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         

@@ -69,7 +69,7 @@ class ViewController2: UIViewController, AVCaptureMetadataOutputObjectsDelegate,
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+        self.orientationChange()
         if (captureSession?.isRunning == false) {
             captureSession.startRunning();
         }
@@ -83,45 +83,45 @@ class ViewController2: UIViewController, AVCaptureMetadataOutputObjectsDelegate,
         }
     }
 
- override func viewDidAppear(_ animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         NotificationCenter.default.addObserver(self, selector: #selector(self.OrientationChange(notification:)), name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
     }
-  @objc func OrientationChange(notification: NSNotification){
+    @objc func OrientationChange(notification: NSNotification){
+        self.orientationChange()
+    }
+    func orientationChange(){
         
         let deviceOrientation = UIDevice.current.orientation
         previewLayer?.bounds = cameraView2.frame
         previewLayer?.position = CGPoint(x: self.cameraView2.frame.width / 2, y: self.cameraView2.frame.height / 2)
         switch deviceOrientation {
-            case UIDeviceOrientation.portrait:
-                previewLayer?.connection?.videoOrientation = AVCaptureVideoOrientation.portrait
-                metadataOutput.rectOfInterest = CGRect(x: Y,y: 1-X-W,width: H,height: W)
-                borderView1.layer.borderColor = UIColor.red.cgColor
-                borderView2.layer.borderColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0).cgColor
-                break
-            case UIDeviceOrientation.landscapeLeft:
-                previewLayer?.connection?.videoOrientation = AVCaptureVideoOrientation.landscapeRight
-                metadataOutput.rectOfInterest = CGRect(x: 0.2, y: 0.25, width: 0.6, height: 0.5)
-                borderView2.layer.borderColor = UIColor.red.cgColor
-                borderView1.layer.borderColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0).cgColor
-                break
-            case UIDeviceOrientation.landscapeRight:
-                previewLayer?.connection?.videoOrientation = AVCaptureVideoOrientation.landscapeLeft
-                metadataOutput.rectOfInterest = CGRect(x: 0.2, y: 0.25, width: 0.6, height: 0.5)
-                borderView2.layer.borderColor = UIColor.red.cgColor
-                borderView1.layer.borderColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0).cgColor
-                break
-            default:
-                break
+        case UIDeviceOrientation.portrait:
+            previewLayer?.connection?.videoOrientation = AVCaptureVideoOrientation.portrait
+            metadataOutput.rectOfInterest = CGRect(x: Y,y: 1-X-W,width: H,height: W)
+            borderView1.layer.borderColor = UIColor.red.cgColor
+            borderView2.layer.borderColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0).cgColor
+            break
+        case UIDeviceOrientation.landscapeLeft:
+            previewLayer?.connection?.videoOrientation = AVCaptureVideoOrientation.landscapeRight
+            metadataOutput.rectOfInterest = CGRect(x: 0.2, y: 0.25, width: 0.6, height: 0.5)
+            borderView2.layer.borderColor = UIColor.red.cgColor
+            borderView1.layer.borderColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0).cgColor
+            break
+        case UIDeviceOrientation.landscapeRight:
+            previewLayer?.connection?.videoOrientation = AVCaptureVideoOrientation.landscapeLeft
+            metadataOutput.rectOfInterest = CGRect(x: 0.2, y: 0.25, width: 0.6, height: 0.5)
+            borderView2.layer.borderColor = UIColor.red.cgColor
+            borderView1.layer.borderColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0).cgColor
+            break
+        default:
+            break
         }
-     
     }
-
     func metadataOutput(_ output: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from connection: AVCaptureConnection) {
-        captureSession.stopRunning()
-        
-        if let metadataObject = metadataObjects.first {
+       if let metadataObject = metadataObjects.first {
             let readableObject = metadataObject as! AVMetadataMachineReadableCodeObject;
-            
+            captureSession.stopRunning()
             AudioServicesPlaySystemSound(SystemSoundID(kSystemSoundID_Vibrate))
             found(code: readableObject.stringValue!);
             

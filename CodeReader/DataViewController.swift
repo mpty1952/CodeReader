@@ -3,6 +3,9 @@ class DataViewController: UIViewController,UITableViewDataSource, UITableViewDel
     
     @IBOutlet weak var myTableView: UITableView!
 
+    @IBAction func Back1(_ sender: UIBarButtonItem) {
+        self.dismiss(animated: true, completion: nil)
+    }
     override func viewDidLoad(){
         super.viewDidLoad()
 

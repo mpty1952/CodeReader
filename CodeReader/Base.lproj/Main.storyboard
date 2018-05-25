@@ -109,7 +109,7 @@
                                     <navigationItem title="Barcode" id="Xyi-jb-Vt0">
                                         <barButtonItem key="leftBarButtonItem" title="Camera" id="bub-dO-BqI">
                                             <connections>
-                                                <segue destination="LXT-Ed-tFq" kind="presentation" id="lIg-PA-2YD"/>
+                                                <action selector="Back2:" destination="gxg-mC-6on" id="hKl-de-avz"/>
                                             </connections>
                                         </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" title="AC" id="ICK-eh-XsY">
@@ -120,16 +120,9 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cBP-6e-yuk">
-                                <rect key="frame" x="0.0" y="-24" width="320" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <items>
-                                    <navigationItem id="BIp-7H-0Mu"/>
-                                </items>
-                            </navigationBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="HeS-zz-CDt">
                                 <rect key="frame" x="0.0" y="64" width="320" height="504"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <outlet property="dataSource" destination="gxg-mC-6on" id="0i6-Bv-ono"/>
@@ -148,7 +141,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bWT-Qr-tO2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-433" y="-440"/>
+            <point key="canvasLocation" x="-433.125" y="-440.49295774647885"/>
         </scene>
         <!--QRcode-->
         <scene sceneID="4WV-XO-6oa">
@@ -165,7 +158,7 @@
                                     <navigationItem title="QRcode" id="HnW-ma-Y9R">
                                         <barButtonItem key="leftBarButtonItem" title="Camera" id="sn7-IR-0cI">
                                             <connections>
-                                                <segue destination="LXT-Ed-tFq" kind="presentation" id="hyg-uq-Cmz"/>
+                                                <action selector="Back1:" destination="q15-AD-Lig" id="9Sx-BA-JRa"/>
                                             </connections>
                                         </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" title="AC" id="XIC-IT-YOL">
@@ -176,16 +169,9 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QSB-8O-eFR">
-                                <rect key="frame" x="0.0" y="-24" width="320" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <items>
-                                    <navigationItem id="dNI-de-qof"/>
-                                </items>
-                            </navigationBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="u1H-K3-fyV">
                                 <rect key="frame" x="0.0" y="64" width="320" height="504"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="myCell1" id="2uD-zv-xA7">
@@ -213,8 +199,15 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gfA-p5-Na0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <navigationBar contentMode="scaleToFill" id="QSB-8O-eFR">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                    <items>
+                        <navigationItem id="dNI-de-qof"/>
+                    </items>
+                </navigationBar>
             </objects>
-            <point key="canvasLocation" x="-364" y="-1593"/>
+            <point key="canvasLocation" x="-365.625" y="-1594.0140845070423"/>
         </scene>
         <!--QRcode-->
         <scene sceneID="F0U-Fi-WVH">
@@ -286,7 +279,7 @@
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OPs-90-8FP">
                                 <rect key="frame" x="16" y="191" width="288" height="185"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lOM-3r-GdC">
@@ -296,27 +289,12 @@
                                     <navigationItem title="Barcode" id="GzM-QM-o4u">
                                         <barButtonItem key="leftBarButtonItem" title="Back" id="Bfm-ek-Axi">
                                             <connections>
-                                                <segue destination="gxg-mC-6on" kind="presentation" id="wZT-iW-Eoe"/>
+                                                <action selector="Back2:" destination="BN5-jJ-zuq" id="1uu-JR-aB5"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dYF-Y9-1Qp">
-                                <rect key="frame" x="0.0" y="-24" width="320" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <items>
-                                    <navigationItem id="eNo-f5-lJ3"/>
-                                </items>
-                            </navigationBar>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZN3-TB-kgQ">
-                                <rect key="frame" x="133" y="518" width="54" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Camera"/>
-                                <connections>
-                                    <segue destination="LXT-Ed-tFq" kind="presentation" id="okq-co-sAM"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="EDa-Zj-yd9"/>
@@ -337,10 +315,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="91G-ZJ-lb0">
-                                <rect key="frame" x="40" y="145" width="240" height="240"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                             <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TiS-DO-VqA">
                                 <rect key="frame" x="0.0" y="20" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
@@ -348,27 +322,16 @@
                                     <navigationItem title="QRcode" id="dJ1-wK-Xee">
                                         <barButtonItem key="leftBarButtonItem" title="Back" id="0dM-TP-kDz">
                                             <connections>
-                                                <segue destination="q15-AD-Lig" kind="presentation" id="6DE-Ds-7yG"/>
+                                                <action selector="Back3:" destination="Weg-Go-SKW" id="nvX-1I-zqY"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wqx-oz-Kby">
-                                <rect key="frame" x="0.0" y="-24" width="320" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <items>
-                                    <navigationItem id="m0R-g8-3OX"/>
-                                </items>
-                            </navigationBar>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e6B-ti-3Pw">
-                                <rect key="frame" x="133" y="518" width="54" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Camera"/>
-                                <connections>
-                                    <segue destination="LXT-Ed-tFq" kind="presentation" id="Jiq-aF-aOC"/>
-                                </connections>
-                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="91G-ZJ-lb0">
+                                <rect key="frame" x="40" y="164" width="240" height="240"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="q25-CE-Ibs"/>
@@ -382,9 +345,4 @@
             <point key="canvasLocation" x="1183" y="-796"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="lIg-PA-2YD"/>
-        <segue reference="5Hq-kC-vbi"/>
-        <segue reference="kkg-c5-7JZ"/>
-    </inferredMetricsTieBreakers>
 </document>
