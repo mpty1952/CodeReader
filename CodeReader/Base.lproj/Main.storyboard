@@ -30,7 +30,7 @@
                                     <navigationItem title="Barcode" id="gja-SJ-xAs">
                                         <barButtonItem key="rightBarButtonItem" title="Data" id="wV1-mb-WhV">
                                             <connections>
-                                                <segue destination="gxg-mC-6on" kind="presentation" id="kkg-c5-7JZ"/>
+                                                <segue destination="gxg-mC-6on" kind="presentation" identifier="BarTableView" id="zvt-g2-hGI"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -38,9 +38,11 @@
                             </navigationBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="cz1-iu-rVR"/>
+                        <viewLayoutGuide key="safeArea" id="t5L-mN-kkB"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Barcode" id="qyK-S8-tvs"/>
+                    <tabBarItem key="tabBarItem" title="Barcode" id="qyK-S8-tvs">
+                        <inset key="imageInsets" minX="0.0" minY="22" maxX="0.0" maxY="22"/>
+                    </tabBarItem>
                     <connections>
                         <outlet property="Bar2" destination="qyK-S8-tvs" id="mGO-mv-jc9"/>
                         <outlet property="cameraView2" destination="q6U-zI-ABC" id="MXf-o3-Luh"/>
@@ -48,18 +50,19 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qlY-gD-i9Z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2064.375" y="-265.14084507042253"/>
+            <point key="canvasLocation" x="-2108" y="-436"/>
         </scene>
         <!--Data View Controller3-->
         <scene sceneID="H79-Rd-Ohi">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xUo-oZ-qGy" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="UAx-X0-E6R" customClass="DataViewController3" customModule="CodeReader" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ofy-si-rVw">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="7jE-ZI-nvB">
-                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                                <rect key="frame" x="0.0" y="45" width="320" height="524"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
@@ -68,31 +71,23 @@
                                 </connections>
                             </tableView>
                             <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5bY-ap-BKP">
-                                <rect key="frame" x="0.0" y="20" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
                                     <navigationItem title="病院名一覧" id="Dby-Fl-rZM"/>
                                 </items>
                             </navigationBar>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SfM-yO-3CM">
-                                <rect key="frame" x="0.0" y="-24" width="320" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <items>
-                                    <navigationItem id="9Dz-jp-43p"/>
-                                </items>
-                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="yNy-LU-IgU"/>
+                        <viewLayoutGuide key="safeArea" id="1HP-2h-qNB"/>
                     </view>
                     <connections>
                         <outlet property="HosTableView" destination="7jE-ZI-nvB" id="t5J-4k-GVv"/>
-                        <segue destination="LXT-Ed-tFq" kind="show" identifier="segue3" id="23g-So-bAc"/>
+                        <segue destination="Weg-Go-SKW" kind="presentation" identifier="segue3" id="br3-dh-nTA"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="xUo-oZ-qGy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2165.625" y="1011.9718309859155"/>
+            <point key="canvasLocation" x="-1305" y="-2026.056338028169"/>
         </scene>
         <!--Barcode-->
         <scene sceneID="Mxr-SU-3D6">
@@ -109,7 +104,7 @@
                                     <navigationItem title="Barcode" id="Xyi-jb-Vt0">
                                         <barButtonItem key="leftBarButtonItem" title="Camera" id="bub-dO-BqI">
                                             <connections>
-                                                <action selector="Back2:" destination="gxg-mC-6on" id="hKl-de-avz"/>
+                                                <action selector="back1:" destination="gxg-mC-6on" id="xXS-pd-yFV"/>
                                             </connections>
                                         </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" title="AC" id="ICK-eh-XsY">
@@ -121,7 +116,7 @@
                                 </items>
                             </navigationBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="HeS-zz-CDt">
-                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                                <rect key="frame" x="0.0" y="65" width="320" height="504"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
@@ -131,17 +126,17 @@
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="UMl-xH-h9S"/>
+                        <viewLayoutGuide key="safeArea" id="QIR-02-776"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Barcode" id="6v2-NE-Y5s"/>
                     <connections>
                         <outlet property="MyTableView" destination="HeS-zz-CDt" id="Usi-Gn-Qk2"/>
-                        <segue destination="BN5-jJ-zuq" kind="showDetail" identifier="segue2" id="Plu-lU-p6J"/>
+                        <segue destination="BN5-jJ-zuq" kind="presentation" identifier="segue2" id="Plu-lU-p6J"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bWT-Qr-tO2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-433.125" y="-440.49295774647885"/>
+            <point key="canvasLocation" x="-1305" y="-436.26760563380282"/>
         </scene>
         <!--QRcode-->
         <scene sceneID="4WV-XO-6oa">
@@ -158,7 +153,7 @@
                                     <navigationItem title="QRcode" id="HnW-ma-Y9R">
                                         <barButtonItem key="leftBarButtonItem" title="Camera" id="sn7-IR-0cI">
                                             <connections>
-                                                <action selector="Back1:" destination="q15-AD-Lig" id="9Sx-BA-JRa"/>
+                                                <segue destination="LXT-Ed-tFq" kind="presentation" animates="NO" id="sn5-3W-IWe"/>
                                             </connections>
                                         </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" title="AC" id="XIC-IT-YOL">
@@ -170,8 +165,8 @@
                                 </items>
                             </navigationBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="u1H-K3-fyV">
-                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                <rect key="frame" x="0.0" y="65" width="320" height="503"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="myCell1" id="2uD-zv-xA7">
@@ -190,24 +185,17 @@
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="bXr-kF-1ci"/>
+                        <viewLayoutGuide key="safeArea" id="OTS-31-WSr"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="QRcode" id="kf2-RC-44A"/>
                     <connections>
                         <outlet property="myTableView" destination="u1H-K3-fyV" id="TOl-xc-KfO"/>
-                        <segue destination="Weg-Go-SKW" kind="showDetail" identifier="segue1" id="hiO-4Z-9Pf"/>
+                        <segue destination="Weg-Go-SKW" kind="presentation" identifier="segue1" id="hiO-4Z-9Pf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gfA-p5-Na0" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <navigationBar contentMode="scaleToFill" id="QSB-8O-eFR">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                    <items>
-                        <navigationItem id="dNI-de-qof"/>
-                    </items>
-                </navigationBar>
             </objects>
-            <point key="canvasLocation" x="-365.625" y="-1594.0140845070423"/>
+            <point key="canvasLocation" x="-1305" y="-1158.8028169014085"/>
         </scene>
         <!--QRcode-->
         <scene sceneID="F0U-Fi-WVH">
@@ -230,7 +218,7 @@
                                         <barButtonItem key="rightBarButtonItem" title="Data" id="GNX-Gw-An0">
                                             <connections>
                                                 <action selector="button1:" destination="91J-SV-9eE" id="5c9-L7-0L4"/>
-                                                <segue destination="q15-AD-Lig" kind="presentation" id="5Hq-kC-vbi"/>
+                                                <segue destination="q15-AD-Lig" kind="presentation" identifier="QRTableView" id="H92-xy-xy8"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -238,13 +226,15 @@
                             </navigationBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="lz2-M5-XBI"/>
+                        <viewLayoutGuide key="safeArea" id="roO-T2-P3G"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="QRcode" id="mUn-Xa-tdy"/>
+                    <tabBarItem key="tabBarItem" title="QRcode" id="mUn-Xa-tdy">
+                        <inset key="largeContentSizeImageInsets" minX="0.0" minY="1" maxX="0.0" maxY="1"/>
+                    </tabBarItem>
                     <connections>
                         <outlet property="Bar1" destination="mUn-Xa-tdy" id="cyq-PG-oZ4"/>
                         <outlet property="cameraView" destination="usA-F6-Cr3" id="vLR-hU-lEn"/>
-                        <segue destination="UAx-X0-E6R" kind="show" identifier="segue4" id="RNR-mE-X55"/>
+                        <segue destination="UAx-X0-E6R" kind="presentation" identifier="segue4" id="RNR-mE-X55"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5q-HX-t7Q" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -255,7 +245,7 @@
         <scene sceneID="3TM-an-pc1">
             <objects>
                 <tabBarController id="LXT-Ed-tFq" sceneMemberID="viewController">
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Yho-Rp-gP9">
+                    <tabBar key="tabBar" contentMode="scaleAspectFit" insetsLayoutMarginsFromSafeArea="NO" id="Yho-Rp-gP9">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -267,7 +257,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nzy-8R-7eN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3069" y="-634"/>
+            <point key="canvasLocation" x="-3002" y="-844"/>
         </scene>
         <!--Barcode View Controller-->
         <scene sceneID="Oe4-tF-ulh">
@@ -277,7 +267,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OPs-90-8FP">
+                            <view contentMode="scaleAspectFit" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OPs-90-8FP">
                                 <rect key="frame" x="16" y="191" width="288" height="185"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -287,9 +277,9 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
                                     <navigationItem title="Barcode" id="GzM-QM-o4u">
-                                        <barButtonItem key="leftBarButtonItem" title="Back" id="Bfm-ek-Axi">
+                                        <barButtonItem key="leftBarButtonItem" title="AllData" id="Bfm-ek-Axi">
                                             <connections>
-                                                <action selector="Back2:" destination="BN5-jJ-zuq" id="1uu-JR-aB5"/>
+                                                <action selector="Back2:" destination="BN5-jJ-zuq" id="f8O-wY-sAV"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -297,7 +287,7 @@
                             </navigationBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="EDa-Zj-yd9"/>
+                        <viewLayoutGuide key="safeArea" id="Al8-Je-fjh"/>
                     </view>
                     <connections>
                         <outlet property="Barcode" destination="OPs-90-8FP" id="0Fh-Yk-bVV"/>
@@ -305,7 +295,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Wf-3d-WpG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1012.5" y="-41.197183098591552"/>
+            <point key="canvasLocation" x="-433" y="-436"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="9IF-td-AUM">
@@ -320,21 +310,21 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
                                     <navigationItem title="QRcode" id="dJ1-wK-Xee">
-                                        <barButtonItem key="leftBarButtonItem" title="Back" id="0dM-TP-kDz">
+                                        <barButtonItem key="leftBarButtonItem" title="AllData" id="0dM-TP-kDz">
                                             <connections>
-                                                <action selector="Back3:" destination="Weg-Go-SKW" id="nvX-1I-zqY"/>
+                                                <segue destination="q15-AD-Lig" kind="presentation" animates="NO" id="v7g-p6-xGF"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="91G-ZJ-lb0">
-                                <rect key="frame" x="40" y="164" width="240" height="240"/>
+                                <rect key="frame" x="69" y="194" width="183" height="180"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="q25-CE-Ibs"/>
+                        <viewLayoutGuide key="safeArea" id="TzR-9c-dhC"/>
                     </view>
                     <connections>
                         <outlet property="QRView" destination="91G-ZJ-lb0" id="kCQ-7P-5Cz"/>
@@ -342,7 +332,11 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dAG-ly-kZr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1183" y="-796"/>
+            <point key="canvasLocation" x="-433.125" y="-1276.056338028169"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="br3-dh-nTA"/>
+        <segue reference="v7g-p6-xGF"/>
+    </inferredMetricsTieBreakers>
 </document>

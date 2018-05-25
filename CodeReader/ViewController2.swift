@@ -11,6 +11,7 @@ class ViewController2: UIViewController, AVCaptureMetadataOutputObjectsDelegate,
     var previewLayer: AVCaptureVideoPreviewLayer!
     @IBOutlet weak var cameraView2: UIView!
     @IBOutlet weak var Bar2: UITabBarItem!
+
     var metadataOutput = AVCaptureMetadataOutput()
     var borderView1: UIView!
     var borderView2: UIView!

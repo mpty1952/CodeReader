@@ -6,6 +6,7 @@ class ViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate, 
     
     @IBOutlet weak var cameraView: UIView!
     @IBOutlet weak var Bar1: UITabBarItem!
+
     let userDefaults = UserDefaults.standard
     var PreviewLayer: AVCaptureVideoPreviewLayer!
     var borderView1: UIView!

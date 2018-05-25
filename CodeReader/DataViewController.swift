@@ -3,9 +3,6 @@ class DataViewController: UIViewController,UITableViewDataSource, UITableViewDel
     
     @IBOutlet weak var myTableView: UITableView!
 
-    @IBAction func Back1(_ sender: UIBarButtonItem) {
-        self.dismiss(animated: true, completion: nil)
-    }
     override func viewDidLoad(){
         super.viewDidLoad()
 
@@ -53,7 +50,7 @@ class DataViewController: UIViewController,UITableViewDataSource, UITableViewDel
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         nameData = viewController.userDefaults.string(forKey: "\(indexPath.row+1001)")!
-        numberData = Int(viewController.userDefaults.string(forKey: "\(indexPath.row+10001)")!)!
+        numberData = UInt64(viewController.userDefaults.string(forKey: "\(indexPath.row+10001)")!)!
         jsonParse.createJson()
         tableView.deselectRow(at: indexPath, animated: true)
         performSegue(withIdentifier: "segue1", sender: nil)

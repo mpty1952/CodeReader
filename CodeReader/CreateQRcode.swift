@@ -2,10 +2,10 @@ import Foundation
 import UIKit
 struct JsonCode: Codable {
     var name:String = ""
-    var number:Int = 0
+    var number:UInt64 = 0
 }
 var nameData:String = ""
-var numberData:Int = 0
+var numberData:UInt64 = 0
 class CreateQRcode: UIImage{
     func createQR(from code: String) -> UIImage? {
         let data = code.data(using: String.Encoding.utf8)

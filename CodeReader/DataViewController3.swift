@@ -34,7 +34,7 @@ class DataViewController3: UIViewController,UITableViewDataSource, UITableViewDe
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         //nameData = Array[indexPath.row]
-        numberData = Int (String(numberData) + allHospitalCode[Array[indexPath.row]]!)!
+        numberData = UInt64 (String(numberData) + allHospitalCode[Array[indexPath.row]]!)!
         viewController.addData()
         jsonParse.createJson()
         tableView.deselectRow(at: indexPath, animated: true)
