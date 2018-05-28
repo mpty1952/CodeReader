@@ -61,11 +61,34 @@ class DataViewController2: UIViewController,UITableViewDataSource, UITableViewDe
     
 
     @IBAction func AC2(_ sender: Any) {
-
+        self.ACAlart()     
+    }
+    func ACAlart() {
+        let alart = UIAlertController (
+            title: "確認",
+            message: "全てのデータを削除しますか？",
+            preferredStyle: .alert
+        )
+        let alart_button1 = UIAlertAction(
+            title: "OK",
+            style: .default,
+            handler: { action in
+                self.ACfunc()
+                self.MyTableView.reloadData()
+        })
+        let alart_button2 = UIAlertAction(
+            title: "キャンセル",
+            style: .default,
+            handler: { action in
+        })
+        alart.addAction(alart_button1)
+        alart.addAction(alart_button2)
+        present(alart, animated: true, completion: nil)
+    }
+    func ACfunc(){
         for i in  (1...20){
             UserDefaults.standard.removeObject(forKey: "\(i)")
         }
-        self.MyTableView.reloadData()
     }
 }
 

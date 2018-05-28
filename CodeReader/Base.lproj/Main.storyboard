@@ -21,6 +21,13 @@
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="q6U-zI-ABC">
                                 <rect key="frame" x="0.0" y="44" width="320" height="524"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xq2-Rc-hN0">
+                                        <rect key="frame" x="0.0" y="-44" width="320" height="568"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </view>
+                                </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ygi-vf-d0k">
@@ -46,6 +53,7 @@
                     <connections>
                         <outlet property="Bar2" destination="qyK-S8-tvs" id="mGO-mv-jc9"/>
                         <outlet property="cameraView2" destination="q6U-zI-ABC" id="MXf-o3-Luh"/>
+                        <outlet property="cgrect2" destination="xq2-Rc-hN0" id="Tnv-aB-f28"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qlY-gD-i9Z" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -55,7 +63,6 @@
         <!--Data View Controller3-->
         <scene sceneID="H79-Rd-Ohi">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="xUo-oZ-qGy" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="UAx-X0-E6R" customClass="DataViewController3" customModule="CodeReader" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ofy-si-rVw">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
@@ -63,7 +70,7 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="7jE-ZI-nvB">
                                 <rect key="frame" x="0.0" y="45" width="320" height="524"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <outlet property="dataSource" destination="UAx-X0-E6R" id="Lba-kR-Gsn"/>
@@ -86,6 +93,7 @@
                         <segue destination="Weg-Go-SKW" kind="presentation" identifier="segue3" id="br3-dh-nTA"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xUo-oZ-qGy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1305" y="-2026.056338028169"/>
         </scene>
@@ -166,7 +174,7 @@
                             </navigationBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="u1H-K3-fyV">
                                 <rect key="frame" x="0.0" y="65" width="320" height="503"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="myCell1" id="2uD-zv-xA7">
@@ -195,7 +203,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gfA-p5-Na0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1305" y="-1158.8028169014085"/>
+            <point key="canvasLocation" x="-1305" y="-1276"/>
         </scene>
         <!--QRcode-->
         <scene sceneID="F0U-Fi-WVH">
@@ -208,6 +216,13 @@
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="usA-F6-Cr3">
                                 <rect key="frame" x="0.0" y="44" width="320" height="524"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="m0S-fm-1J6">
+                                        <rect key="frame" x="0.0" y="-44" width="320" height="568"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </view>
+                                </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="E5y-XV-ybs">
@@ -234,6 +249,7 @@
                     <connections>
                         <outlet property="Bar1" destination="mUn-Xa-tdy" id="cyq-PG-oZ4"/>
                         <outlet property="cameraView" destination="usA-F6-Cr3" id="vLR-hU-lEn"/>
+                        <outlet property="cgrect1" destination="m0S-fm-1J6" id="3GH-La-6qf"/>
                         <segue destination="UAx-X0-E6R" kind="presentation" identifier="segue4" id="RNR-mE-X55"/>
                     </connections>
                 </viewController>
@@ -332,7 +348,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dAG-ly-kZr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-433.125" y="-1276.056338028169"/>
+            <point key="canvasLocation" x="-298" y="-2026"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>

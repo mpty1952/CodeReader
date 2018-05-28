@@ -7,6 +7,7 @@ class ViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate, 
     @IBOutlet weak var cameraView: UIView!
     @IBOutlet weak var Bar1: UITabBarItem!
 
+    @IBOutlet weak var cgrect1: UIView!
     let userDefaults = UserDefaults.standard
     var PreviewLayer: AVCaptureVideoPreviewLayer!
     var borderView1: UIView!
@@ -37,11 +38,11 @@ class ViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate, 
                     PreviewLayer = AVCaptureVideoPreviewLayer(session: self.session)
                     PreviewLayer.videoGravity = .resizeAspectFill
                     self.cameraView.layer.addSublayer(PreviewLayer)
-                    borderView1 = UIView(frame: CGRect(x : X * self.view.bounds.width, y : Y * self.view.bounds.height, width : W * self.view.bounds.width, height : H * self.view.bounds.height))
+                    borderView1 = UIView(frame: CGRect(x : X * self.cgrect1.bounds.width, y : Y * self.cgrect1.bounds.height, width : W * self.cgrect1.bounds.width, height : H * self.cgrect1.bounds.height))
                     borderView1.layer.borderWidth = 2
                     borderView1.layer.borderColor = UIColor.red.cgColor
                     self.view.addSubview(borderView1)
-                    borderView2 = UIView(frame: CGRect(x : Y * self.view.bounds.height, y : (1-W-X) * self.view.bounds.width, width : W * self.view.bounds.width, height : H * self.view.bounds.height))
+                    borderView2 = UIView(frame: CGRect(x : Y * self.cgrect1.bounds.height, y : (1-W-X) * self.cgrect1.bounds.width, width : W * self.cgrect1.bounds.width, height : H * self.cgrect1.bounds.height))
                     borderView2.layer.borderWidth = 2
                     borderView2.layer.borderColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0).cgColor
                     self.view.addSubview(borderView2)
@@ -55,10 +56,13 @@ class ViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate, 
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.orientationChange()
         if (session.isRunning == false) {
             session.startRunning();
         }
+    }
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        self.orientationChange()
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated) 

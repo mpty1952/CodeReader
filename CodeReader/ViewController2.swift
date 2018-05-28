@@ -11,7 +11,8 @@ class ViewController2: UIViewController, AVCaptureMetadataOutputObjectsDelegate,
     var previewLayer: AVCaptureVideoPreviewLayer!
     @IBOutlet weak var cameraView2: UIView!
     @IBOutlet weak var Bar2: UITabBarItem!
-
+    @IBOutlet weak var cgrect2: UIView!
+    
     var metadataOutput = AVCaptureMetadataOutput()
     var borderView1: UIView!
     var borderView2: UIView!
@@ -47,21 +48,15 @@ class ViewController2: UIViewController, AVCaptureMetadataOutputObjectsDelegate,
         } else {
             return
         }
-        
         previewLayer = AVCaptureVideoPreviewLayer(session: captureSession);
-        previewLayer.videoGravity = AVLayerVideoGravity.resizeAspectFill;
-        view.layer.addSublayer(previewLayer);
-        cameraView2.layer.addSublayer(previewLayer!)
-        previewLayer?.position = CGPoint(x: self.cameraView2.frame.width / 2, y: self.cameraView2.frame.height / 2)
-        previewLayer?.bounds = cameraView2.frame
-        
+        self.cameraView2.layer.addSublayer(previewLayer)
+        previewLayer.videoGravity = .resizeAspectFill
         metadataOutput.rectOfInterest = CGRect(x: Y,y: 1-X-W,width: H,height: W)
-        
-        borderView1 = UIView(frame: CGRect(x : X * self.view.bounds.width, y : Y * self.view.bounds.height, width : W * self.view.bounds.width, height : H * self.view.bounds.height))
+        borderView1 = UIView(frame: CGRect(x : X * self.cgrect2.bounds.width, y : Y * self.cgrect2.bounds.height, width : W * self.cgrect2.bounds.width, height : H * self.cgrect2.bounds.height))
         borderView1.layer.borderWidth = 2
         borderView1.layer.borderColor = UIColor.red.cgColor
         self.view.addSubview(borderView1)
-        borderView2 = UIView(frame: CGRect(x : 0.2 * self.view.bounds.height, y : 0.25 * self.view.bounds.width, width : 0.6 * self.view.bounds.height, height : 0.5                                                                                                                                 * self.view.bounds.width))
+        borderView2 = UIView(frame: CGRect(x : 0.2 * self.cgrect2.bounds.height, y : 0.25 * self.cgrect2.bounds.width, width : 0.6 * self.cgrect2.bounds.height, height : 0.5                                                                                                                                 * self.cgrect2.bounds.width))
         borderView2.layer.borderWidth = 2
         borderView2.layer.borderColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0).cgColor
         self.view.addSubview(borderView2)
@@ -70,12 +65,14 @@ class ViewController2: UIViewController, AVCaptureMetadataOutputObjectsDelegate,
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.orientationChange()
         if (captureSession?.isRunning == false) {
             captureSession.startRunning();
         }
     }
-    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        self.orientationChange()
+    }
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         

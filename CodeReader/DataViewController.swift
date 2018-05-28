@@ -64,6 +64,31 @@ class DataViewController: UIViewController,UITableViewDataSource, UITableViewDel
     }
     
     @IBAction func AC(_ sender: Any) {
+        self.ACAlart()
+    }
+    func ACAlart() {
+        let alart = UIAlertController (
+            title: "確認",
+            message: "全てのデータを削除しますか？",
+            preferredStyle: .alert
+        )
+        let alart_button1 = UIAlertAction(
+            title: "OK",
+            style: .default,
+            handler: { action in
+                self.ACfunc()
+                self.myTableView.reloadData()
+        })
+        let alart_button2 = UIAlertAction(
+            title: "キャンセル",
+            style: .default,
+            handler: { action in
+        })
+        alart.addAction(alart_button1)
+        alart.addAction(alart_button2)
+        present(alart, animated: true, completion: nil)
+    }
+    func ACfunc(){
         for i in  (1...20){
             var j=1000
             for _ in (1...2){
@@ -71,7 +96,6 @@ class DataViewController: UIViewController,UITableViewDataSource, UITableViewDel
                 j=j*10
             }
         }
-        self.myTableView.reloadData()
     }
 }
 
